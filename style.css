@@ -1,118 +1,308 @@
 :root {
-  --bg-color: #6ef29e;
-  --text-color: #000000;
-  --link-color: #136631;
-  --link-hover-color: #ffffff;
-  --card-bg-color: transparent;
-  --card-text-color: #000000;
-  --navbar-bg-color: transparent;
-  --resume-link-color: #fff;
-  --contact-text-color: #000000;
-
+  --bg-color: #f5f7fa;
+  --text-color: #22223b;
+  --link-color: #3a86ff;
+  --link-hover-color: #ffbe0b;
+  --card-bg-color: #ffffff;
+  --card-text-color: #22223b;
+  --navbar-bg-color: #ffffffcc;
+  --resume-link-color: #3a86ff;
+  --contact-text-color: #22223b;
+  --contact-input-color:#fffbf1;
+  --contact-link-color:#3a86ff;
 }
 
 body {
   background-color: var(--bg-color);
-  color: var(--text-color);
   font-family: 'poppins', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+
 }
 
 .dark-mode {
-  --bg-color: #121212;
-  --text-color: #e0e0e0;
-  --link-color: #90caf9;
-  --link-hover-color: #bbdefb;
-  --card-bg-color: #1e1e1e;
-  --card-text-color: #e0e0e0;
-  --navbar-bg-color: #1a1a1a;
-  --resume-link-color: #90caf9;
-  --contact-text-color: #e0e0e0;
+  --bg-color: #181825;
+  --text-color: #f5f7fa;
+  --link-color: #a3cef1;
+  --link-hover-color: #ffbe0b;
+  --card-bg-color: #232946;
+  --card-text-color: #f5f7fa;
+  --navbar-bg-color: #232946cc;
+  --resume-link-color: #a3cef1;
+  --contact-text-color: #f5f7fa;
+  --contact-input-color:#ffff;
 }
 
 body.dark-mode {
   background-color: var(--bg-color);
-  color: var(--text-color);
 }
 body:not(.dark-mode) .pp-dark {
   display: none !important;
 }
 body:not(.dark-mode) .pp-light {
   display: block !important;
+  filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.41));
 }
-
+#navbar {
+  background-color:transparent;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  transition:padding 0.5s, height 0.5s;
+}
+#navbar img{
+  width: 3rem; 
+  height: 3rem;
+  border-radius: 50%;
+  transition: width 0.3s, height 0.3s;
+}
 #navlist li a {
   color: var(--link-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 #navlist li a:hover {
   color: var(--link-hover-color);
-  transition: 0.3s ease-in-out all;
-  font-size: 1.05rem;
+  transform: scale(1.1);
+}
+#themeToggleBtn{
+  color: var(--link-color);  
+  border-radius: 50%;
+  border:none; 
+  background-color:transparent;
+  cursor:pointer; 
+  font-size:1.5rem; 
+}
+#themeToggleBtn:hover{
+  background-color: var(--bg-color);
+  color: var(--link-hover-color);
+}
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  z-index: 0;
+  /* pointer-events:none; */
+}
+#home > div:not(#particles-js) {
+  position: relative;
+  z-index: 1;
+}
+#home{
+    background-color:transparent;
+    padding:1rem;
+}
+.intro1{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color:var(--text-color);
+}
+.name{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.role1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffbe0b;
+}
+.role2{
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+}
+.role2::after {
+  content: '|';
+  animation: blink 1s steps(2, start) infinite;
+  margin-left: 1px;
+}
+@keyframes blink {
+  to { visibility: hidden; }
+}
+.desc{
+    font-size: 1.1rem;
+    font-weight: 200;
+    color:var(--text-color);
+}
+#home a{
+  color: var(--link-color);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#home a:hover{
+  color:var(--link-hover-color);
+  transform: scale(1.2);
+}
+.pp-light{
+  padding-top: 1rem;
+  display: none !important;
+}
+.pp-dark{
+  padding-top: 1rem;
+  display: block !important;
+  filter: drop-shadow(1px 1px 10px rgba(255, 255, 255, 0.301));
 }
 
-#navbar {
-  background-color: var(--navbar-bg-color);
+#experience{
+  color: var(--text-color);
+  background-color: transparent;
+}
+#experience .exptitle{
+  font-size: 2rem;
+  font-weight: 600;
+}
+.exp {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
+/* Add this for the image inside .exp */
+#experience .exp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#experience .exp img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+.rolename{
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 1rem;
+}
+.roledesc{
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 200;
+}
+#projects .protitle{
+  font-weight: 600;
+  font-size: 2rem;
+}
 #projects .card {
-  background-color: var(--card-bg-color);
   color: var(--card-text-color);
   margin: 1rem;
   padding: 1rem;
   border-radius: 1rem;
+  background-color: transparent;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-#projects .card a {
-  color: var(--card-text-color);
+.card:hover {
+  transform: scale(1.03);
+  cursor: pointer;
 }
-
 #projects .card a:hover {
-  color: #4dde82;
+  color: var(--link-hover-color);
   transition: color 0.3s ease-in-out;
 }
-
-#resume a {
-  color: var(--resume-link-color);
+#projects{
+  background-color: transparent;
+  color: var(--text-color);
+}
+#projects img{
+    width:100%;
+    height:30vh;
+}
+#projects .card-body{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+#projects .card-text{
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+#projects .button{
+  font-size: 1rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  line-height: 1.5;
+  border-radius: 6px;
+}
+.card a {
+  text-decoration: none;
+  background-color:transparent;
+  border: none;
+  color: var(--link-color);
 }
 
-#contact p, #contact a {
+#resume{
+    background-color: transparent;
+    margin:auto;
+    padding: 3rem;
+    color: var(--text-color);
+}
+#resume .button1{
+  color: var(--resume-link-color);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#resume .button1:hover{
+  color: var(--link-hover-color);
+  transform: scale(1.5);
+}
+.resumetitle{
+    font-size: 2rem;
+    font-weight: 600;
+}
+.resumeimg{
+    width: 100%;
+    height: auto;
+}
+
+#contact p ,#contact label{
   color: var(--contact-text-color);
 }
+#contact input, #contact textarea{
+  background-color: var(--contact-input-color);
 
-
-#toggleMenuBtn {
-  display:flex;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: none;
 }
-#navlist {
-    display: flex;
+#contact{
+    background-color: transparent;
+    padding: 2rem;
+    text-align: start;
 }
-#navlist li{
-    list-style: none;
+#contact p {
+    font-size: 2rem;
+    font-weight: 600;
 }
-#navlist li a {
+#contact a {
     text-decoration: none;
-    color: #136631;
-}
-#navlist li a:hover {
-    color: #ffffff;
-    transition: 0.3s ease-in-out all;
-    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--contact-link-color);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
 }
-@media (max-width: 730px) {
+#contact a:hover {
+    transform: scale(1.1);
+    color: var(--link-hover-color);
+}
+
+/* @media (max-width: 730px) {
   #navlist {
-    display: none !important; /* Force hide on small screens */
+    display: none !important; 
     flex-direction: column;
     position: absolute;
-    top: 70px; /* adjust as needed */
+    top: 70px; 
     right: 20px;
     background: #fff;
     border: 1px solid #ddd;
@@ -120,17 +310,25 @@ body:not(.dark-mode) .pp-light {
     z-index: 1000;
   }
   #navlist.show {
-    display: flex !important; /* Show when toggled */
+    display: flex !important;
   }
   #themeToggleBtn{
     display: flex !important;
     justify-content: end !important;
     text-align: end !important;
   }
-}
+} */
 
 /* Responsive improvements */
 @media (max-width: 768px) {
+  #navlist {
+    display: none !important;
+  }
+  #themeToggleBtn{
+    display:flex !important;
+    justify-content: end !important;
+    text-align: end !important;
+  }
   #projects img {
     width: 100% !important;
     height: auto !important;
@@ -139,15 +337,16 @@ body:not(.dark-mode) .pp-light {
     height: 100% !important;
     padding: 1rem !important;
   }
-  #experience .carousel-item {
-    height: 100% !important;
-  }
   .exp{
     width: 100% !important;
     height: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
+  }
+  #experience .exp img{
+    max-width: 240px;
+    width:100%;
   }
   .rolename{
     font-size: 1.2rem !important;
@@ -215,22 +414,28 @@ body:not(.dark-mode) .pp-light {
   #navlist li a {
     font-size: 0.9rem !important;
   }
+  
   #experience .exp{
-    width:100% !important;
-    height: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items:baseline !important;
-    justify-content: center !important;
+    max-width: 98vw;
+    width: 100%;
+    padding: 0.5rem 0.2rem;
   }
-  #experience .carousel-item {
-    height: 100% !important;
+  #experience .exp img{
+    max-width: 160px;
+    width: 100%;
+  }
+  #experience .exptitle{
+    font-size: 1.2rem !important;
   }
   .rolename {
-    font-size: 0.8rem !important;
+    font-size: 0.95rem !important;
+    padding-top: 1rem;
   }
   .roledesc {
-    font-size: 0.7rem !important;
+    font-size: 0.8rem !important;
+  }
+  #projects .protitle{
+    font-size: 1.2rem !important;
   }
   #projects .card {
     margin: 0.5rem !important;
@@ -251,18 +456,23 @@ body:not(.dark-mode) .pp-light {
     justify-content: center !important;
   }
   #projects img {
-    width: 50% !important;
-    height: auto !important;
+    width: 100% !important;
+    height: 25vh !important;
   }
-  #projecs .btn{
-    font-size: 0.5rem !important;
+  #projects .button{
+    font-size: 0.95rem !important;
   }
   #resume {
     margin-top: 2rem !important;
     padding: 1rem !important;
   }
-  #resume a {
+  #resume p{
     font-size: 0.8rem !important;
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
+  }
+  #resume a {
+    font-size: 1rem !important;
   }
   #resume .resumetitle {
     font-size: 1.2rem !important;
@@ -274,11 +484,8 @@ body:not(.dark-mode) .pp-light {
   #contact {
     padding: 1rem !important;
   }
-  #contact h2 {
-    font-size: 1.5rem !important;
-  }
   #contact p {
-    font-size: 0.9rem !important;
+    font-size: 1.2rem !important;
   }
   #contact a {
     font-size: 0.8rem !important;
@@ -289,177 +496,106 @@ body:not(.dark-mode) .pp-light {
   #contact .icon-section{
     margin-top: 2rem !important;
   }
-  
-
-}
-#navbar{
-    background-color: transparent;
 }
 
-#home{
-    background-color:transparent;
-    padding:1rem;
-}
-.intro1{
-    font-size: 1.5rem;
-    font-weight: 300;
-}
-.name{
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #fff;
-}
-.role1{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #7bffc6;
-}
-.role2{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #ff8181;
-    position: relative;
-}
-.role2::after {
-  content: '|';
-  animation: blink 1s steps(2, start) infinite;
-  margin-left: 1px;
-}
-@keyframes blink {
-  to { visibility: hidden; }
-}
-.desc{
-    font-size: 1.1rem;
-    font-weight: 200;
-}
-.pp-light{
-  padding-top: 1rem;
-  display: none !important;
-}
-.pp-dark{
-  padding-top: 1rem;
-  display: block !important;
+/* scroll animation */
+@keyframes appear-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-#experience{
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
+@keyframes appear-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-.carousel-caption{
-    font-size: 0.5rem;
-    font-weight: 300;
-    color: #fff;
-}
-.exp{
-    width:100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-}
-.rolename{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #000;
-    text-align: center;
-}
-.roledesc{
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 200;
-    color: #000;
+@keyframes fade-in {
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }to{
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
-.sec{
-    border: 1px solid #000;
-    padding: 1rem;
-    border-radius: 10px;  
-    margin: 1rem;
-
+#home .appear-left {
+  animation: appear-left 1s ease-in-out forwards;
+}
+#home .appear-right {
+  animation: appear-right 1s ease-in-out forwards;
 }
 
-#projects{
-    margin-bottom: 5rem;
-    background-color: transparent;
+#experience {
+  opacity: 0;
+  transform: translateY(20px);
 }
-#projects img{
-    width:50%;
-}
-#projects .card-title{
-    font-size: 1.2rem;
-    font-weight: 600;
-    background-color: transparent;
-}
-#projects .card-text{
-    font-size: 0.9rem;
-    font-weight: 300;
-}
-#projects .card{
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: transparent;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
-}
-.card {
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
-}
-.card:hover {
-  transform: scale(1.03);
-  cursor: pointer;
-}
-.card a {
-  text-decoration: none;
-  color: #000;
-}
-.card a:hover {
-  color: #4dde82;
-  transition: color 0.3s ease-in-out;
+#experience.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fade-in 1s ease-in-out forwards;
 }
 
+#projects .appear-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: appear-left 1s ease-in-out forwards;
+}
+#projects .appear-right {
+  opacity: 0;
+  transform: translateX(100px);
+  animation: appear-right 1s ease-in-out forwards;
+}
+#projects .animated {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 #resume{
-    background-color: transparent;
-    margin:auto;
-    padding: 3rem;
+  opacity:0;
+  transform: translateY(20px);
 }
-#resume a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 300;
-}
-.resumetitle{
-    font-size: 2rem;
-    font-weight: 600;
-    color: #fff;
-}
-.resumeimg{
-    width: 100%;
-    height: auto;
+#resume.visible1{
+  opacity: 1;
+  transform: translateY(0px);
+  animation: fade-in 1s ease-in-out forwards;
 }
 
-#contact{
-    background-color: transparent;
-    padding: 2rem;
-    text-align: start;
+#contact .appear-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  animation: appear-left 1s ease-in-out forwards;
 }
-#contact p {
-    color: #ffffff;
-    font-size: 2rem;
-    font-weight: 600;
+#contact .appear-right {
+  opacity: 0;
+  transform: translateX(80px);
+  animation: appear-right 1s ease-in-out forwards;
+  animation-delay:2s;
 }
-#contact a {
-    color: #fff;;
-    text-decoration: none;
-    font-weight: 600;
+#contact .animated {
+  opacity: 1;
+  transform: translateX(0);
 }
-#contact a:hover {
-    color: #6ef29e;
-    transition: color 0.3s ease-in-out;
-    transform: scale(1.05);
+
+#navbar.navbar-small{
+  padding: 0rem 1rem; 
+  height: 50% !important;
+}
+#navbar.navbar-small #navlist li a {
+  font-size: 0.95rem;
+}
+#navbar.navbar-small img{
+  width: 2rem;
+  height: 2rem;
 }

@@ -3,23 +3,14 @@
 })();
 
 document.addEventListener('DOMContentLoaded', function() {
-  const toggleBtn = document.getElementById('toggleMenuBtn');
   const navlist = document.getElementById('navlist');
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const themeIcon = themeToggleBtn.querySelector('i');
 
-  toggleBtn.addEventListener('click', function() {
+  themeToggleBtn.addEventListener('click', function() {
     navlist.classList.toggle('show');
   });
 
-  // Optional: Close menu when a link is clicked (mobile only)
-  navlist.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 730) {
-        navlist.classList.remove('show');
-      }
-    });
-  });
 
   // Optional: Hide navList if window is resized above 730px
   window.addEventListener('resize', () => {
@@ -33,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
   contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Clear previous error messages
+    // Clear error messages
     const errorElements = contactForm.querySelectorAll('.error-message');
     errorElements.forEach(el => el.remove());
 
@@ -69,10 +60,14 @@ document.addEventListener('DOMContentLoaded', function() {
       showError(messageInput, 'Message is required');
       isValid = false;
     }
-
+    console.log("Name:", nameInput.value);
+console.log("Email:", emailInput.value);
+console.log("Phone:", phoneInput.value);
+console.log("Message:", messageInput.value);
+      
+    // Send email using emailjs
     if (isValid) {
-      // Send email using emailjs
-      emailjs.sendForm('service_2siva', 'template_ey45d3k', contactForm)
+      emailjs.sendForm('service_2siva', 'template_km0s0xk', contactForm)
         .then(function() {
           alert('Thank you for contacting us, ' + nameInput.value.trim() + '!');
           contactForm.reset();
@@ -100,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return re.test(phone);
   }
 
-  // Dark/light mode toggle logic
+  // Dark/light mode toggle
   function setTheme(isDark) {
     if (isDark) {
       document.body.classList.add('dark-mode');
@@ -128,9 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
+//Typing animation
 document.addEventListener("DOMContentLoaded", function() {
-  const texts = [" Full Stack Developer", " Web developer"," Python Developer"];
+  const texts = [" Full Stack Developer", " Web Developer"," Python Developer"];
   let textIndex = 0;
   let charIndex = 0;
   let typing = true;
@@ -160,4 +155,82 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   type();
+
+});
+
+  // Scroll animation for experience
+document.addEventListener('DOMContentLoaded', function () {
+  const expSection = document.getElementById('experience');
+  function checkExperienceInView() {
+    const rect = expSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      expSection.classList.add('visible');
+      window.removeEventListener('scroll', checkExperienceInView);
+    }
+  }
+  window.addEventListener('scroll', checkExperienceInView);
+  checkExperienceInView();
+});
+
+//scroll animation for projects
+document.addEventListener('DOMContentLoaded', function () {
+  const row1 = document.getElementById('projects-row-1');
+  const row2 = document.getElementById('projects-row-2');
+
+  function animateProjectsRows() {
+    const row1Rect = row1.getBoundingClientRect();
+    const row2Rect = row2.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (row1Rect.top < windowHeight - 50 && !row1.classList.contains('animated')) {
+      row1.classList.add('appear-left', 'animated');
+    }
+    if (row2Rect.top < windowHeight - 50 && !row2.classList.contains('animated')) {
+      row2.classList.add('appear-right', 'animated');
+    }
+  }
+
+  window.addEventListener('scroll', animateProjectsRows);
+  animateProjectsRows();
+});
+
+
+  // Scroll animation for resume
+document.addEventListener('DOMContentLoaded', function () {
+  
+  const expSection = document.getElementById('resume');
+  function checkExperienceInView() {
+    const rect = expSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      expSection.classList.add('visible1');
+      window.removeEventListener('scroll', checkExperienceInView);
+    }
+  }
+  window.addEventListener('scroll', checkExperienceInView);
+  checkExperienceInView();
+});
+
+  // Scroll animation for contact
+document.addEventListener('DOMContentLoaded', function () {
+  const contactSection = document.getElementById('contact');
+  const contactCols = contactSection.querySelectorAll('.col-sm');
+  function animateContactCols() {
+    const rect = contactSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      if (contactCols[0]) contactCols[0].classList.add('appear-left', 'animated');
+      if (contactCols[1]) contactCols[1].classList.add('appear-right', 'animated');
+      window.removeEventListener('scroll', animateContactCols);
+    }
+  }
+  window.addEventListener('scroll', animateContactCols);
+  animateContactCols();
+});
+
+window.addEventListener('scroll', function() {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('navbar-small');
+  } else {
+    navbar.classList.remove('navbar-small');
+  }
 });
