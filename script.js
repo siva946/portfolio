@@ -110,8 +110,9 @@ console.log("Message:", messageInput.value);
 
   // Load saved theme preference
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
+  if (savedTheme === 'dark' || !savedTheme) {
     setTheme(true);
+    localStorage.setItem('theme','dark');
   } else {
     setTheme(false);
   }
