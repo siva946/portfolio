@@ -13,7 +13,6 @@
 }
 
 body {
-  
   font-family: 'poppins', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 
@@ -324,11 +323,7 @@ body:not(.dark-mode) .pp-light {
   #navlist {
     display: none !important;
   }
-  #themeToggleBtn{
-    display:flex !important;
-    justify-content: end !important;
-    text-align: end !important;
-  }
+
   #projects img {
     width: 100% !important;
     height: auto !important;
