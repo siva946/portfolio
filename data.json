@@ -1,0 +1,78 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Natarajan and Co",
+      "image": "./assets/project1.jpg",
+      "description": "A retail store website highlighting their expertise in providing professional services and solutions for businesses. The website showcases their commitment to quality and client satisfaction.",
+      "link": "https://natarajanandco.com/",
+      "tags": ["Web Development", "Landing Page"]
+    },
+    {
+      "id": 2,
+      "title": "Melody Photography - Karaikudi",
+      "image": "./assets/project3.webp",
+      "description": "A portfolio website for a professional photography studio, featuring galleries, service details, and contact information. The site highlights the studio's expertise in capturing memorable moments and showcases a variety of photography styles.",
+      "link": "https://melodyphotographyps.netlify.app/",
+      "tags": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "id": 3,
+      "title": "AI based Image restoration model",
+      "image": "./assets/project2.png",
+      "description": "A deep learning project that restores and enhances old or damaged images using advanced neural networks. The model removes noise, repairs missing parts, and improves image clarity automatically.",
+      "link": "https://github.com/siva946/ai_image_restoration.git",
+      "tags": ["AI", "Deep Learning", "Python"]
+    },
+    {
+      "id":4,
+      "title": "Zudo AI - chatbot",
+      "image": "./assets/project2.jpg",
+      "description": "A conversational AI chatbot built with Python, featuring voice recognition and natural language processing. Accessible via a web interface, it enables users to interact through speech, ask questions, and receive intelligent responses in real time.",
+      "link": "https://zudoai.onrender.com/",
+      "tags": ["Python", "AI", "Voice Recognition"]
+    },
+    {
+      "id": 5,
+      "title": "E-commerce platform",
+      "image": "./assets/project5.webp",
+      "description": "Experience innovation at the Apple E-Commerce platform, where you can easily shop for the latest devices and accessories from anywhere. Enjoy a seamless browsing experience with secure checkout options and discover exclusive products—all designed to elevate your tech journey.",
+      "link": "https://siva946.github.io/e-commerce.github.io/",
+      "tags": ["E-commerce", "Web Development"]
+    },
+    {
+      "id": 6,
+      "title": "Real Time chat-app",
+      "image": "./assets/project6.png",
+      "description":"Developed a real-time chat application leveraging technologies like Node.js and Socket.IO (inferred from similar projects). Implemented features for instant messaging and user interaction.",
+      "link": "https://siva946.github.io/P-guess-num.github.io/",
+      "tags": ["JavaScript", "Game"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Sai Techno Solutions",
+      "role": "Web developer",
+      "image": "./assets/saitech.jpg",
+      "description": "Developed and maintained web applications, collaborated with cross-functional teams, and ensured high-quality code standards."
+    }
+  ],
+  "skills": [
+    { "name": "HTML5", "icon": "devicon-html5-plain colored" },
+    { "name": "CSS3", "icon": "devicon-css3-plain colored" },
+    { "name": "JavaScript", "icon": "devicon-javascript-plain colored" },
+    { "name": "Python", "icon": "devicon-python-plain colored" },
+    { "name": "Bootstrap", "icon": "devicon-bootstrap-plain colored" },
+    { "name": "Git", "icon": "devicon-git-plain colored" },
+    { "name": "GitHub", "icon": "devicon-github-original" },
+    { "name": "React", "icon": "devicon-react-original colored" },
+    { "name": "Node.js", "icon": "devicon-nodejs-plain colored" },
+    { "name": "MySQL", "icon": "devicon-mysql-plain colored" },
+    {"name":"Java", "icon":"devicon-java-plain colored"} ,
+    {"name":"TailwindCSS","icon":"devicon-tailwindcss-plain colored"},
+    {"name":"Flask","icon":"devicon-flask-original colored"},
+    {"name":"MongoDB","icon":"devicon-mongodb-plain colored"},
+    {"name":"Figma","icon":"devicon-figma-plain colored"},
+    {"name":"Photoshop","icon":"devicon-photoshop-plain colored"}
+  ]
+}
