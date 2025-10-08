@@ -4,6 +4,7 @@
   "description": "Personal portfolio website for Siva Subramani V",
   "main": "index.html",
   "scripts": {
+    "build": "node build.js",
     "start": "npx http-server -p 8080",
     "dev": "npx live-server"
   },
