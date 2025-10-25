@@ -641,6 +641,9 @@ footer p {
   #navlist li a {
     font-size: 0.9rem !important;
   }
+  .desc{
+    display: none;
+  }
 
   #experience .exp {
     max-width: 98vw;
