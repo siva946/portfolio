@@ -374,6 +374,18 @@ body:not(.dark-mode) .pp-light {
   background-color: transparent;
   border: none;
   color: var(--link-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#projects .button:hover {
+  transform: scale(1.1);
+}
+
+#projects .button i {
+  font-size: 1.5rem;
 }
 
 .badge {
@@ -631,6 +643,10 @@ footer p {
   #resume .resumetitle {
     font-size: 1.5rem !important;
   }
+
+  #projects .button i {
+    font-size: 1.25rem !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -696,6 +712,10 @@ footer p {
 
   #projects .button {
     font-size: 0.95rem !important;
+  }
+
+  #projects .button i {
+    font-size: 1.1rem !important;
   }
 
   #resume {
