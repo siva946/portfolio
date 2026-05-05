@@ -24,7 +24,7 @@
       "image": "./assets/project2.png",
       "description": "A deep learning project that restores and enhances old or damaged images using advanced neural networks. The model removes noise, repairs missing parts, and improves image clarity automatically.",
       "link": "https://huggingface.co/spaces/Siva946/AI-image-restoration",
-      "huggingface":"https://huggingface.co/spaces/Siva946/AI-image-restoration/tree/main",
+      "github":"https://huggingface.co/spaces/Siva946/AI-image-restoration/tree/main",
       "tags": ["AI", "Deep Learning", "Python"]
     },
     {
@@ -33,7 +33,7 @@
       "image": "./assets/project2.jpg",
       "description": "A conversational AI chatbot built with Python, featuring voice recognition and natural language processing. Accessible via a web interface, it enables users to interact through speech, ask questions, and receive intelligent responses in real time.",
       "link": "https://huggingface.co/spaces/Siva946/AI-chatbot",
-      "huggingface":"https://huggingface.co/spaces/Siva946/AI-chatbot/tree/main",
+      "github":"https://huggingface.co/spaces/Siva946/AI-chatbot/tree/main",
       "tags": ["Python", "AI", "Voice Recognition"]
     },
     {
@@ -47,11 +47,12 @@
     },
     {
       "id": 6,
-      "title": "Real Time chat-app",
-      "image": "./assets/project6.png",
-      "description":"Developed a real-time chat application leveraging technologies like Node.js and Socket.IO (inferred from similar projects). Implemented features for instant messaging and user interaction.",
-      "github": "https://github.com/siva946/realtime-chat-app",
-      "tags": ["JavaScript", "Game"]
+      "title": "Aqeel Traders - Import and Export",
+      "image": "./assets/aqeel_traders.png",
+      "description":"Aqeel Traders is an India-based exporter specializing in high-quality agricultural and food commodities. Operating out of Karaikudi, Tamil Nadu, the company supplies a wide variety of products to international markets across the Middle East, Africa, Europe, and Asia.",
+      "link": "https://aqeeltraders.com/",
+      "github": "https://github.com/siva946/aqeel_traders_2.git",
+      "tags": ["React App", "Web Development"]
     }
   ],
   "experience": [
