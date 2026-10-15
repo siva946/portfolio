@@ -57,10 +57,17 @@
   ],
   "experience": [
     {
+      "company":"Marz Technologies",
+      "role":"Software Trainee",
+      "image":"./assets/marztech.jpg",
+      "description":"Designed and implemented dynamic, responsive websites and customized software solutions across front-end UI design, back-end integration, database management, and cloud deployment. Leveraging freelance collaboration and technical instruction, gathered client requirements, delivered tailored digital products."
+    },
+    {
       "company": "Sai Techno Solutions",
-      "role": "Web developer",
+      "role": "Web developer Intern",
       "image": "./assets/saitech.jpg",
       "description": "Developed and maintained web applications, collaborated with cross-functional teams, and ensured high-quality code standards."
     }
+    
   ]
 }

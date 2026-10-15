@@ -24,15 +24,114 @@ async function loadPortfolioData() {
 
 function renderExperience() {
   const container = document.getElementById("experience-container");
-  portfolioData.experience.forEach((exp) => {
-    container.innerHTML += `
-      <div class="exp">
-        <img src="${exp.image}" alt="${exp.company}" loading="lazy">
-        <p class="rolename">${exp.role}</p>
-        <p class="roledesc">${exp.description}</p>
+  const experiences = portfolioData.experience;
+
+  const slidesHTML = experiences.map((exp, i) => `
+    <div class="exp-slide${i === 0 ? ' active' : ''}" role="tabpanel" aria-label="Experience ${i + 1} of ${experiences.length}">
+      <div class="exp-card">
+        <div class="exp-img-wrap">
+          <img src="${exp.image}" alt="${exp.company}" loading="lazy">
+        </div>
+        <div class="exp-content">
+          <span class="exp-company">${exp.company}</span>
+          <p class="rolename">${exp.role}</p>
+          <p class="roledesc">${exp.description}</p>
+        </div>
       </div>
-    `;
+    </div>
+  `).join('');
+
+  const dotsHTML = experiences.map((_, i) => `
+    <button class="exp-dot${i === 0 ? ' active' : ''}" aria-label="Go to slide ${i + 1}" data-index="${i}"></button>
+  `).join('');
+
+  container.innerHTML = `
+    <div class="exp-carousel" id="exp-carousel" aria-roledescription="carousel" aria-label="Work Experience">
+      <div class="exp-track-wrapper">
+        <div class="exp-track" id="exp-track">
+          ${slidesHTML}
+        </div>
+      </div>
+      <button class="exp-nav exp-prev" id="exp-prev" aria-label="Previous experience">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button class="exp-nav exp-next" id="exp-next" aria-label="Next experience">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+      <div class="exp-dots" id="exp-dots" role="tablist" aria-label="Experience slides">
+        ${dotsHTML}
+      </div>
+      <div class="exp-counter">
+        <span id="exp-current">1</span> / <span id="exp-total">${experiences.length}</span>
+      </div>
+    </div>
+  `;
+
+  initExperienceCarousel();
+}
+
+function initExperienceCarousel() {
+  const track = document.getElementById('exp-track');
+  const slides = track ? track.querySelectorAll('.exp-slide') : [];
+  const prevBtn = document.getElementById('exp-prev');
+  const nextBtn = document.getElementById('exp-next');
+  const dotsContainer = document.getElementById('exp-dots');
+  const dots = dotsContainer ? dotsContainer.querySelectorAll('.exp-dot') : [];
+  const currentEl = document.getElementById('exp-current');
+  const carousel = document.getElementById('exp-carousel');
+
+  if (!slides.length) return;
+
+  let current = 0;
+  let autoPlayTimer = null;
+  const INTERVAL = 4000;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current] && dots[current].classList.remove('active');
+
+    current = (index + slides.length) % slides.length;
+
+    slides[current].classList.add('active');
+    dots[current] && dots[current].classList.add('active');
+    if (currentEl) currentEl.textContent = current + 1;
+  }
+
+  function startAuto() {
+    stopAuto();
+    autoPlayTimer = setInterval(() => goTo(current + 1), INTERVAL);
+  }
+
+  function stopAuto() {
+    if (autoPlayTimer) { clearInterval(autoPlayTimer); autoPlayTimer = null; }
+  }
+
+  prevBtn && prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+  nextBtn && nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.index)); startAuto(); });
   });
+
+  // Pause on hover
+  carousel && carousel.addEventListener('mouseenter', stopAuto);
+  carousel && carousel.addEventListener('mouseleave', startAuto);
+
+  // Keyboard support
+  carousel && carousel.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { goTo(current - 1); startAuto(); }
+    if (e.key === 'ArrowRight') { goTo(current + 1); startAuto(); }
+  });
+
+  // Touch / swipe support
+  let touchStartX = 0;
+  carousel && carousel.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  carousel && carousel.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); startAuto(); }
+  }, { passive: true });
+
+  startAuto();
 }
 
 function renderProjects() {
